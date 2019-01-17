@@ -30,6 +30,7 @@ public class UdpSend {
             buff = sendText.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            return;
         }
         sendTextThread = new Thread(new Runnable() {
             @Override
@@ -47,7 +48,6 @@ public class UdpSend {
                     socket.close();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    //Log.d("da", "da");
                 }
             }
         });

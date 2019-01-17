@@ -12,9 +12,7 @@ import static model.BlockModel.SpicaBlock.*;
 public class SpicaWrapper {
     private UdpSend udpSend;
     private ArrayList<BlockModel> blocks = new ArrayList<>();
-    boolean flag1;
-    boolean flag2;
-    boolean flag3;
+
 
     public SpicaWrapper(String ip, int port) {
         udpSend = new UdpSend(ip, port);
@@ -65,7 +63,7 @@ public class SpicaWrapper {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(IF_START);
         blockModel.setId("0007");
-        blockModel.setValue(value);
+        blockModel.setSensorValue(value);
         if (flag.equals("up")) {
             blockModel.setIfGreaterOrLess(1);
         } else {
@@ -111,9 +109,9 @@ public class SpicaWrapper {
 
 
     private boolean ifStatementCheck() {
-        flag1 = false;
-        flag2 = false;
-        flag3 = false;
+        boolean flag1 = false;
+        boolean flag2 = false;
+        boolean flag3 = false;
 
         for (int i = 0; i < blocks.size(); i++) {
             BlockModel block = blocks.get(i);
@@ -139,7 +137,6 @@ public class SpicaWrapper {
     }
 
 
-    int generateFlag;
 
     private String generateUdpSendTexts() {
         if (!ifStatementCheck()) {
@@ -162,24 +159,22 @@ public class SpicaWrapper {
                 rightSpeed = String.format("%03d", 0);
             }
 
-            String value = String.format("%03d", (int) Math.round(script.getValue()));
+            String value = String.format("%03d", (int) Math.round(script.getSensorValue()));
             if (script.getBlock() == IF_START || script.getBlock() == FOR_START) {
 
-                value = String.format("%03d", (int) Math.round(script.getValue()));
+                value = String.format("%03d", (int) Math.round(script.getSensorValue()));
             } else if (script.getBlock() == IF_END || script.getBlock() == FOR_END) {
                 value = String.format("%03d", 0);
             }
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
             System.out.println(String.valueOf(ifState) + blockId + String.valueOf(leftSpeed) + String.valueOf(rightSpeed) + String.valueOf(value));
 
             sendStringData = sendStringData + String.valueOf(ifState) + blockId + String.valueOf(leftSpeed) + String.valueOf(rightSpeed) + String.valueOf(value);
         }
         return sendStringData;
-
-
     }
 
     private void ifStateCreate() {
+        int generateFlag = 0;
         for (int i = 0; i < blocks.size(); i++) {
             BlockModel block = blocks.get(i);
             switch (block.getBlock()) {

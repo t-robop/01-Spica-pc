@@ -5,19 +5,16 @@ package model;
  */
 public class BlockModel {
     private String id;
-    private int pos;
     //if
     private int ifState = 0;
     //ブロック
     private SpicaBlock block;
 
-    private int speed = 0;
-    //ブロック毎の値
-    //private int time = 0;
-    private boolean isInLoop=false;
+    // 速度やifの<>を入れる
+    private int value1 = 0;
 
     // センサーの距離
-    int value = 0;
+    int value2 = 0;
 
     public String getId() {
         return id;
@@ -26,15 +23,6 @@ public class BlockModel {
     public void setId(String id) {
         this.id = id;
     }
-
-    public int getPos() {
-        return pos;
-    }
-
-    public void setPos(int pos) {
-        this.pos = pos;
-    }
-
 
     public SpicaBlock getBlock() {
         return block;
@@ -45,39 +33,37 @@ public class BlockModel {
     }
 
     public int getSpeed() {
-        return speed;
+        return value1;
     }
 
     public void setSpeed(int speed) {
-        this.speed = speed;
+        if (speed < 0) {
+            this.value1 = 0;
+        } else if (speed > 255) {
+            this.value1 = 255;
+        } else {
+            this.value1 = speed;
+        }
     }
 
     public int getTime() {
-        return value;
+        return value2;
     }
 
     public void setTime(int value) {
         // 入力上は1000秒で1秒だが、ロボット側では、10で1秒のため
-        this.value = value / 100;
-    }
-
-    public boolean isInLoop() {
-        return isInLoop;
-    }
-
-    public void setInLoop(boolean inLoop) {
-        isInLoop = inLoop;
+        this.value2 = value / 100;
     }
 
 
     // ifで使うsensor距離を入れる
-    public void setValue(int value) {
-        this.value = value;
+    public void setSensorValue(int value) {
+        this.value2 = value2;
     }
 
 
-    public int getValue() {
-        return value;
+    public int getSensorValue() {
+        return value2;
     }
 
 
@@ -85,17 +71,20 @@ public class BlockModel {
     public int getIfState() {
         return ifState;
     }
+
     public void setIfState(int ifState) {
         this.ifState = ifState;
     }
 
-// ifで使う以上以下の分岐
+    // ifで使う以上以下の分岐
     public int getIfGreaterOrLess() {
-        return speed;
+        return value1;
 
     }
+
+    // < > どちらかを決める
     public void setIfGreaterOrLess(int value) {
-        this.speed = value;
+        this.value1 = value;
     }
 
 
