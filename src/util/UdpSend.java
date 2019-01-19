@@ -10,7 +10,7 @@ import java.net.InetAddress;
  */
 public class UdpSend {
 
-    private String ip = "192.168.1.7";
+    private String ip = "192.168.1.1";
     private int port = 10000;
     private InetAddress inetAddress;
     private byte[] buff;
@@ -20,7 +20,6 @@ public class UdpSend {
 
 
     public UdpSend(String ip, int port){
-        // 読み込み
         this.ip = ip;
         this.port = port;
     }

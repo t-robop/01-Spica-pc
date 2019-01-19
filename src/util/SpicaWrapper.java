@@ -85,9 +85,6 @@ public class SpicaWrapper {
         blocks.add(blockModel);
     }
 
-    // TODO Block配列の検査機構を作る(if用)
-
-
     public void run() {
         String sendTexts = generateUdpSendTexts();
         if (sendTexts.equals("error")) {
@@ -96,17 +93,6 @@ public class SpicaWrapper {
         }
         udpSend.UdpSendText(sendTexts);
     }
-
-    /*
-    ifの部分だけID値が異なる
-    ほかは一緒
-    ifは三桁目の値を変える
-    trueなら0100系
-    falseなら0200系
-    forを展開後、ifstartEndでsplit
-    forの展開をする必要はない,そのまま送ればできるから、ifだけ検査して、IDをうまくやる
-     */
-
 
     private boolean ifStatementCheck() {
         boolean flag1 = false;
@@ -148,7 +134,6 @@ public class SpicaWrapper {
             String ifState = String.format("%02d", script.getIfState());
             String blockId = String.format("%02d", script.getBlock().getId());
 
-            //速度値は左右同じものを使う
             String leftSpeed = String.format("%03d", script.getSpeed());
             if (script.getBlock() == IF_END || script.getBlock() == FOR_START || script.getBlock() == FOR_END) {
                 leftSpeed = String.format("%03d", 0);
@@ -185,21 +170,9 @@ public class SpicaWrapper {
                 case FOR_START:
                 case FOR_END:
                     if (generateFlag == 0) {
-
                     } else if (generateFlag == 1) {
                         block.setIfState(1);
-//                        String tmpIdStr = block.getId();
-//                        int tmpIdInt = Integer.valueOf(tmpIdStr);
-//                        tmpIdInt += 100;
-//                        tmpIdStr = "0" + tmpIdInt;
-//                        block.setId(tmpIdStr);
-
                     } else if (generateFlag == 2) {
-//                        String tmpIdStr = block.getId();
-//                        int tmpIdInt = Integer.valueOf(tmpIdStr);
-//                        tmpIdInt += 200;
-//                        tmpIdStr = "0" + tmpIdInt;
-//                        block.setId(tmpIdStr);
                         block.setIfState(2);
                     }
                     break;

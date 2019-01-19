@@ -5,9 +5,7 @@ package model;
  */
 public class BlockModel {
     private String id;
-    //if
     private int ifState = 0;
-    //ブロック
     private SpicaBlock block;
 
     // 速度やifの<>を入れる
@@ -82,11 +80,10 @@ public class BlockModel {
 
     }
 
-    // < > どちらかを決める
+    // < > どちらかを決める 1なら> 2なら<
     public void setIfGreaterOrLess(int value) {
         this.value1 = value;
     }
-
 
     public enum SpicaBlock {
         FRONT(1),

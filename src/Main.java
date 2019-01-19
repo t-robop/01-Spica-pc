@@ -3,13 +3,10 @@ import util.SpicaWrapper;
 public class Main {
 
     public static void main(String[] args) {
-        //System.out.println("Hello World!");
-        //UdpSend udpSend = new UdpSend("192.168.10.38",10000);
-        //udpSend.UdpSendText("aaaaaaaaaaaa");
         SpicaWrapper spica = new SpicaWrapper("192.168.10.101",10000);
 
 
-        //////////////////////////////////////////////////////
+        //////////////////この下にプログラムを書こう！/////////////////////
         spica.front(1000,100);
         spica.back(1000,80);
 
@@ -22,9 +19,8 @@ public class Main {
         //spica.back(1500,100);
 
 
+        ///////////////////////////ここまで！///////////////////////////
 
-
-        /////////////////////////////
         spica.run();
     }
 }
