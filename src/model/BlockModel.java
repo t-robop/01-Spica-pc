@@ -80,6 +80,10 @@ public class BlockModel {
 
     }
 
+    public void setLoopNum(int loopNum) {
+        this.value2 = loopNum;
+    }
+
     // < > どちらかを決める 1なら> 2なら<
     public void setIfGreaterOrLess(int value) {
         this.value1 = value;

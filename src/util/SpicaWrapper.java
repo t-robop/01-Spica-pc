@@ -58,6 +58,18 @@ public class SpicaWrapper {
         blockModel.setTime(time);
         blocks.add(blockModel);
     }
+    public void loopStartBlock(int loopNum) {
+        BlockModel blockModel = new BlockModel();
+        blockModel.setBlock(FOR_START);
+        blockModel.setId("0005");
+        blockModel.setLoopNum(loopNum);
+    }
+    public void loopEndBlock() {
+        BlockModel blockModel = new BlockModel();
+        blockModel.setBlock(FOR_START);
+        blockModel.setId("0006");
+    }
+
 
     public void ifStartBlock(int value, String flag) {
         BlockModel blockModel = new BlockModel();
