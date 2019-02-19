@@ -64,18 +64,21 @@ public class SpicaWrapper {
         blockModel.setBlock(FOR_START);
         blockModel.setId("0005");
         blockModel.setLoopNum(loopNum);
+        blocks.add(blockModel);
     }
 
     public void loopEndBlock() {
         BlockModel blockModel = new BlockModel();
-        blockModel.setBlock(FOR_START);
+        blockModel.setBlock(FOR_END);
         blockModel.setId("0006");
+        blocks.add(blockModel);
     }
 
     public void breakBlock() {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(BREAK);
         blockModel.setId("0009");
+        blocks.add(blockModel);
     }
 
     public void ifStartBlock(int value, String flag) {

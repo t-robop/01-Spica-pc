@@ -7,14 +7,16 @@ public class Main {
 
 
         //////////////////この下にプログラムを書こう！/////////////////////
+        spica.loopStartBlock(2);
         spica.front(1000,100);
         spica.back(1000,80);
+        spica.loopEndBlock();
 
         // しきい値 int型, 以上以下 String型
         //spica.ifStartBlock(20,"up");
-        spica.left(1000,100);
+        //spica.left(1000,100);
         //spica.elseBlock();
-        spica.right(1000,100);
+        //spica.right(1000,100);
         //spica.ifEndBlock();
         //spica.back(1500,100);
 
