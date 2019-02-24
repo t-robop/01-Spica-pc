@@ -3,7 +3,7 @@ import util.SpicaWrapper;
 public class Main {
 
     public static void main(String[] args) {
-        SpicaWrapper spica = new SpicaWrapper("192.168.10.101",10000);
+        SpicaWrapper spica = new SpicaWrapper("192.168.1.101",50000);
 
 
         //////////////////この下にプログラムを書こう！/////////////////////
@@ -19,7 +19,6 @@ public class Main {
         //spica.right(1000,100);
         //spica.ifEndBlock();
         //spica.back(1500,100);
-
 
         ///////////////////////////ここまで！///////////////////////////
 
