@@ -59,7 +59,7 @@ public class SpicaWrapper {
         blocks.add(blockModel);
     }
 
-    public void loopStartBlock(int loopNum) {
+    public void loopStart(int loopNum) {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(FOR_START);
         blockModel.setId("0005");
@@ -67,21 +67,21 @@ public class SpicaWrapper {
         blocks.add(blockModel);
     }
 
-    public void loopEndBlock() {
+    public void loopEnd() {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(FOR_END);
         blockModel.setId("0006");
         blocks.add(blockModel);
     }
 
-    public void breakBlock() {
+    public void loopBreak() {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(BREAK);
         blockModel.setId("0009");
         blocks.add(blockModel);
     }
 
-    public void ifStartBlock(int value, String flag) {
+    public void ifStart(int value, String flag) {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(IF_START);
         blockModel.setId("0007");
@@ -94,13 +94,13 @@ public class SpicaWrapper {
         blocks.add(blockModel);
     }
 
-    public void elseBlock() {
+    public void ifElse() {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(BlockModel.SpicaBlock.ELSE);
         blocks.add(blockModel);
     }
 
-    public void ifEndBlock() {
+    public void ifEnd() {
         BlockModel blockModel = new BlockModel();
         blockModel.setBlock(IF_END);
         blockModel.setId("0008");
