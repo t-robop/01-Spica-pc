@@ -35,10 +35,10 @@ public class BlockModel {
     }
 
     public void setSpeed(int speed) {
-        if (speed < 0) {
-            this.value1 = 0;
-        } else if (speed > 255) {
-            this.value1 = 255;
+        if (speed < 50) {
+            this.value1 = 50;
+        } else if (speed > 150) {
+            this.value1 = 150;
         } else {
             this.value1 = speed;
         }
