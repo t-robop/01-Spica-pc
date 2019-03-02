@@ -50,6 +50,12 @@ public class BlockModel {
 
     public void setTime(int value) {
         // 入力上は1000秒で1秒だが、ロボット側では、10で1秒のため
+        if (value < 100) {
+            value = 100;
+        } else if (value >= 100000) {
+            value = 99900;
+        }
+
         this.value2 = value / 100;
     }
 
